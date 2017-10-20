@@ -1,0 +1,5 @@
+build
+*.zip
+pandar-recorder-32
+WpdPack
+pthreads-w32-2-9-1-release
