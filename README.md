@@ -1,7 +1,7 @@
 # for windows:
 
-## 1. 下载并解压[WinPcap Developer's Pack](https://www.winpcap.org/devel.htm)和[pthreads-w32-2-9-1-release](ftp://sourceware.org/pub/pthreads-win32)到工程目录下，
-## 2. 下载并安装vs2010, cmake, [WinPcap](https://www.winpcap.org/install/)和qt4(设置好qt的环境变量)
+## 1. 下载并解压[WinPcap Developer's Pack](https://www.winpcap.org/devel.htm)和[pthreads-w32-2-9-1-release](ftp://sourceware.org/pub/pthreads-win32)到工程目录下
+## 2. 下载并安装vs2010, cmake, [WinPcap](https://www.winpcap.org/install/)和[qt4-vs2010](http://download.qt.io/archive/qt/4.8/4.8.5/)(设置好qt的环境变量)
 ## 3. 编译
 ### （1）编译32位版本
 * 用cmake-gui配置好编译器为vs2010，
