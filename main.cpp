@@ -89,6 +89,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
 
 int main(int argc , char**argv)
 {
+	initilizeTimer();	
 	QApplication qapp(argc, argv);
 	MainWindow mainWindow;
 	mainWindow.setWindowTitle("PandarRecorder");

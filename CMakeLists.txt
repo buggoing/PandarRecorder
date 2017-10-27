@@ -15,7 +15,7 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
 set (THREADS_USE_PTHREADS_WIN32 true)
-set (BUILD_WIN64 true)
+#set (BUILD_WIN64 true)
 
 if(WIN32)
 	find_package(WinPcap REQUIRED)

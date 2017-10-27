@@ -4,16 +4,30 @@ using namespace std;
 
 #ifdef _MSC_VER
 
+LARGE_INTEGER StartingTime, EndingTime, ElapsedMicroseconds, Frequency;
+long startSecond;
+
+void initilizeTimer()
+{	
+  FILETIME ft;
+	::GetSystemTimeAsFileTime(&ft);
+	long long t = (static_cast<long long>(ft.dwHighDateTime) << 32) | ft.dwLowDateTime;
+	t -= 116444736000000000LL;
+	t /= 10; // microseconds
+	startSecond = static_cast<long>(t / 1000000UL);
+  QueryPerformanceFrequency(&Frequency);
+  QueryPerformanceCounter(&StartingTime);
+}
+
 int gettimeofday(struct timeval *tp, void *)
 {
-    FILETIME ft;
-    ::GetSystemTimeAsFileTime(&ft);
-    long long t = (static_cast<long long>(ft.dwHighDateTime) << 32) | ft.dwLowDateTime;
-    t -= 116444736000000000LL;
-    t /= 10; // microseconds
-    tp->tv_sec = static_cast<long>(t / 1000000UL);
-    tp->tv_usec = static_cast<long>(t % 1000000UL);
-    return 0;
+  QueryPerformanceCounter(&EndingTime);
+  ElapsedMicroseconds.QuadPart = EndingTime.QuadPart - StartingTime.QuadPart;
+  ElapsedMicroseconds.QuadPart *= 1000000;
+  ElapsedMicroseconds.QuadPart /= Frequency.QuadPart;
+  tp->tv_sec = startSecond + ElapsedMicroseconds.QuadPart / 1000000;
+  tp->tv_usec = ElapsedMicroseconds.QuadPart % 1000000;
+  return 0;
 }
 
 static BOOL g_first_time = 1;

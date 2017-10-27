@@ -30,6 +30,9 @@
 #define CLOCK_REALTIME 0
 #define THREAD_T_INIT(t){t.p = NULL;}
 #define THREAD_IS_VALID(t) t.p
+int gettimeofday(struct timeval *tp, void *);
+void initilizeTimer();
+
 #else
 #define INVALID_SOCKET -1
 #define SOCKET_ERROR -1
