@@ -17,7 +17,7 @@
 
 
 # for ubuntu
-## 1. 安装cmake, libpcap, qt4，执行以下命令:
+## 1. 安装cmake, libpcap, qt4:
 `sudo apt-get install cmake libpcap-dev libqt4-dev qt4-default`
-## 2. 打开终端，cd到项目目录，执行以下命令进行编译：
-`makir build; cd build; cmake ..; make`
+## 2. cd到项目目录：
+`mkdir build; cd build; cmake ..; make`
